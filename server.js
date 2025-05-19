@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 
+import { holdings, capitalGains } from './dummyData.js'
+
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -8,13 +10,17 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('Hello World! This is the root route.');
+    res.send("check /api/v1/holdings and /api/v1/capital-gains");
+})
+
+app.get('/api/v1/holdings', (req, res) => {
+    res.json(holdings)
 });
 
-app.get('/api/data', (req, res) => {
-    res.json({ message: 'This is some data from /api/data', timestamp: new Date() });
+app.get('/api/capital-gains', (req, res) => {
+    res.json(capitalGains);
 });
 
 app.listen(port, () => {
-    console.log(`Server listening at http://:${port}`);
+    console.log(`Server listening at ${port}`);
 });
