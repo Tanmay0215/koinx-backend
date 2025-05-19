@@ -17,7 +17,7 @@ app.get('/api/v1/holdings', (req, res) => {
     res.json(holdings)
 });
 
-app.get('/api/capital-gains', (req, res) => {
+app.get('/api/v1/capital-gains', (req, res) => {
     res.json(capitalGains);
 });
 
